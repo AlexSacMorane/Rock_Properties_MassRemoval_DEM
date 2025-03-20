@@ -17,6 +17,10 @@ from pathlib import Path
 #User
 #-------------------------------------------------------------------------------
 
+# from table 
+readParamsFromTable(type_cementation='13MB', mass_removal=0)
+from yade.params.table import *
+
 # PSD
 n_grains = 3000
 L_r = []
@@ -46,19 +50,50 @@ P_cementation = P_load*1 # Pa
 # 11BB : f_cemented (0.98), m_log (8.01), s_log (0.88), E ( 760MPa), Ab_mean (4267e-12)
 # 13BT : f_cemented (1.00), m_log (8.44), s_log (0.92), E ( 860MPa), Ab_mean (6577e-12)
 # 13MB : f_cemented (1.00), m_log (8.77), s_log (0.73), E (1000MPa), Ab_mean (8137e-12)
-type_cementation = '13MB' # only for the report
-f_cemented = 1. # -
-m_log = 8.77 # -
-s_log = 0.73 # -
-YoungModulus = 1000e6
-Ab_mean = 8137e-12 # m2
+#type_cementation = '13MB' # only for the report
+#f_cemented = 1. # -
+#m_log = 8.77 # -
+#s_log = 0.73 # -
+#YoungModulus = 1000e6
+#Ab_mean = 8137e-12 # m2
+if type_cementation == '2T':
+    f_cemented = 0.13 # -
+    m_log = 6.79 # -
+    s_log = 0.7 # -
+    YoungModulus = 300e6 # Pa
+    Ab_mean = 148e-12 # m2
+elif type_cementation == '2MB':
+    f_cemented = 0.88 # -
+    m_log = 7.69 # -
+    s_log = 0.6 # -
+    YoungModulus = 320e6 # Pa
+    Ab_mean = 2303e-12 # m2
+elif type_cementation == '11BB':
+    f_cemented = 0.98 # -
+    m_log = 8.01 # -
+    s_log = 0.88 # -
+    YoungModulus = 760e6 # Pa
+    Ab_mean = 4267e-12 # m2
+elif type_cementation == '13BT':
+    f_cemented = 1. # -
+    m_log = 8.44 # -
+    s_log = 0.92 # -
+    YoungModulus = 860e6 # Pa
+    Ab_mean = 6577e-12 # m2
+elif type_cementation == '13MB':
+    f_cemented = 1. # -
+    m_log = 8.77 # -
+    s_log = 0.73 # -
+    YoungModulus = 1000e6 # Pa
+    Ab_mean = 8137e-12 # m2
+
 # mechanical rupture
 factor_strength = 10
 tensileCohesion = 2.75e6*factor_strength # Pa
 shearCohesion = 6.6e6*factor_strength # Pa
 
 # Dissolution
-mass_removal = 0.1 # 0-1 maximum bond surface (4e4 µm2)
+#mass_removal = 0.1 # 0-1 maximum bond surface (4e4 µm2)
 
 # additional loading to determine properties
 n_load = 20
@@ -413,9 +448,6 @@ def cementation():
                     # set normal and shear adhesions
                     i.phys.normalAdhesion = tensileCohesion*cohesiveSurface
                     i.phys.shearAdhesion = shearCohesion*cohesiveSurface
-                # set normal and shear adhesions
-                i.phys.normalAdhesion = tensileCohesion*cohesiveSurface
-                i.phys.shearAdhesion = shearCohesion*cohesiveSurface
                 # local law E(Ab)
                 localYoungModulus = (YoungModulus-80e6)*cohesiveSurface/Ab_mean + 80e6
                 i.phys.kn = localYoungModulus*(O.bodies[i.id1].shape.radius*2*O.bodies[i.id2].shape.radius*2)/(O.bodies[i.id1].shape.radius*2+O.bodies[i.id2].shape.radius*2)
