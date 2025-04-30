@@ -5,6 +5,8 @@ Determine elastic properties (Young modulus, bulk modulus, shear modulus, and Po
 
 To do so, incremental perturbations are employed considering isotropic, oedometric, and triaxial loading conditions.
 
+The same framework is employed, considering a Finite Element Model [here](https://github.com/AlexSacMorane/Rock_Properties_MassRemoval_FEM).
+
 ### Isotropic loading
 
 ![Scheme of the isotopic loading](fig_LoadingIsotropic.png)
