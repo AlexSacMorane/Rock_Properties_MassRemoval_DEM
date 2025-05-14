@@ -636,7 +636,7 @@ def saveData_ic():
 
 def controlWalls():
     '''
-    Control the upper wall to applied a defined confinement force.
+    Control the walls to apply a defined confinement force.
 
     The displacement of the wall depends on the force difference. A maximum value is defined.
     '''
