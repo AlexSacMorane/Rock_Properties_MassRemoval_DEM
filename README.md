@@ -33,12 +33,8 @@ The [discrete element model](https://en.wikipedia.org/wiki/Discrete_element_meth
 
 The launch of this project and the definition of he parameters are done by executing the python script <i>Rock_Isotropic_MassRemoval.py</i>, <i>Rock_Oedometer_MassRemoval.py</i>, or <i>Rock_Triaxial_MassRemoval.py</i>.
 
-A [documentation](??) for the python script will be available soon.
+A [documentation](https://alexsacmorane.github.io/dem/rock_props_debonding/) for the python script is available.
 
-## What is next ?
-Some next releases are presented here.
 
-- write the online documentation
-- publish an article about the simulation and results
 
 
