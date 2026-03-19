@@ -1,6 +1,9 @@
 # Rock_Properties_MassRemoval
 Determine elastic properties (Young modulus, bulk modulus, shear modulus, and Poisson ratio) of rocks with debonding. It uses [Yade](https://yade-dem.org/doc/) as a Discrete Element Model software.
 
+This work is presented in the following paper: 
+Fanyu Wu, Alexandre Sac-Morane, Hadrien Rattez, Manolis Veveakis, Manman Hu. (2025). Onset of reactive brittle cracking in sandstones: DEM-informed phase-field modeling. International Journal of Rock Mechanics and Mining Sciences. https://doi.org/10.1016/j.ijrmms.2025.106319
+
 ![framework](fig_ChemicalDamage_ElasticParameters.png)
 
 To do so, incremental perturbations are employed considering isotropic, oedometric, and triaxial loading conditions.
